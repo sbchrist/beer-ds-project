@@ -1,10 +1,9 @@
 library(MASS)
 
+# read in the csv
 data <- read.csv(file="BeerDataScienceProject.csv")
-data[complete.cases(data), ]
 
-data.centered<-data.frame(scale(data,center=TRUE,scale=FALSE))
-
+#logistic regression model
 model <- polr(as.factor(review_overall)~review_palette+review_appearance+review_taste+review_aroma,data=data,Hess=TRUE)
 
 #store table
